@@ -4,7 +4,7 @@ function Header()
 {
     return(
         <div>
-            <h2>I am a header</h2>
+            <h2>I am a header</h2>            
         </div>
     )
 }
