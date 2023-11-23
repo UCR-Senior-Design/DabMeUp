@@ -40,12 +40,12 @@ const handleLogin = async (email, password) => {
     // You can access the user from the userCredential if needed
     const user = userCredential.user;
     
-    console.log("Successfully signed in:", user);
+    alert("Successfully signed in: " + user);
     
     // Add any additional logic you need after successful login
   } catch (error) {
     // Handle errors, e.g., display an error message to the user
-    console.error("Error signing in:", error.message);
+    alert("Error signing in:\n" + error.message);
   }
 };
 
@@ -57,12 +57,12 @@ const handleSignUp = async (email, password) => {
     // You can access the user from the userCredential if needed
     const user = userCredential.user;
 
-    console.log("Successfully signed up:", user);
+    alert("Successfully signed up: " + user);
 
     // Add any additional logic you need after successful sign-up
   } catch (error) {
     // Handle errors, e.g., display an error message to the user
-    console.error("Error signing up:", error.message);
+    alert("Error signing up:\n" + error.message);
   }
 };
 
