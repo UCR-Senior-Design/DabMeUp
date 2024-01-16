@@ -1,19 +1,25 @@
 import React, { useState } from "react";
 import "./CreateAccount.css";
+import { useNavigate } from "react-router-dom";
+import { auth } from '../firebase'; // Import Firebase auth
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
-const CreateAccount = ({ onLogin, onSignUp }) => {
+const CreateAccount = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  let navigate = useNavigate();
 
-  const handleLogin = () => {
-    // You can perform any additional validation here before calling onLogin
-    onLogin(email, password);
+  const handleSignUp = async () => {
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      alert("Account created successfully!");
+      navigate("/Dashboard");
+    } catch (error) {
+      console.error("Error signing up:", error);
+      alert(`Failed to create account: ${error.message}`);
+    }
   };
-
-  const handleSignUp = () => {
-    // You can perform any additional validation here before calling onSignUp
-    onSignUp(email, password);
-  };
+  
 
   return (
     <div>
@@ -24,7 +30,7 @@ const CreateAccount = ({ onLogin, onSignUp }) => {
             <label htmlFor="email"><b>Email</b></label>
             <input
               type="email"
-              placeholder="enter email"
+              placeholder="Enter email"
               name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -34,14 +40,12 @@ const CreateAccount = ({ onLogin, onSignUp }) => {
             <label htmlFor="password"><b>Password</b></label>
             <input
               type="password"
-              placeholder="enter password"
+              placeholder="Enter password"
               name="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-
-            
 
             <button type="button" className="signupbtn" onClick={handleSignUp}>
               Sign Up

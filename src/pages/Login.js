@@ -1,18 +1,27 @@
 import React, { useState } from "react";
 import "./Login.css";
+import { useNavigate } from "react-router-dom";
+import { auth } from '../firebase'; // Import Firebase auth
+import { signInWithEmailAndPassword } from "firebase/auth"; // Import from Firebase auth
 
-const Login = ({ onLogin, onSignUp }) => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  let navigate = useNavigate();
 
-  const handleLogin = () => {
-    // You can perform any additional validation here before calling onLogin
-    onLogin(email, password);
+  const handleLogin = async () => {
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      alert("Logged in successfully!");
+      navigate("/Dashboard");
+    } catch (error) {
+      console.error("Error logging in:", error);
+      alert(`Login failed: ${error.message}`);
+    }
   };
 
   const handleSignUp = () => {
-    // You can perform any additional validation here before calling onSignUp
-    onSignUp(email, password);
+    navigate("/CreateAccount");
   };
 
   return (
@@ -24,7 +33,7 @@ const Login = ({ onLogin, onSignUp }) => {
             <label htmlFor="email"><b>Email</b></label>
             <input
               type="email"
-              placeholder="enter email"
+              placeholder="Enter email"
               name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -34,7 +43,7 @@ const Login = ({ onLogin, onSignUp }) => {
             <label htmlFor="password"><b>Password</b></label>
             <input
               type="password"
-              placeholder="enter password"
+              placeholder="Enter password"
               name="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
