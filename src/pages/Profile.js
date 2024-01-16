@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [friendPreference, setFriendPreference] = useState("");
   const [interests, setInterests] = useState([]);
-
+  const navigate = useNavigate();
   const handleInterestChange = (event) => {
     const selectedOptions = Array.from(event.target.selectedOptions, option => option.value);
     setInterests(selectedOptions);
@@ -14,6 +15,7 @@ const Profile = () => {
   const handleSave = () => {
     // Save logic here
     console.log({ name, age, friendPreference, interests });
+    navigate('/Dashboard');
   };
 
   return (
