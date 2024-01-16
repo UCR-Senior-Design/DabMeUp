@@ -1,18 +1,22 @@
 import React, { useState } from "react";
 import "./Login.css";
+import { useNavigate } from "react-router-dom";
 
 const Login = ({ onLogin, onSignUp }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  let Navigate = useNavigate();
 
   const handleLogin = () => {
     // You can perform any additional validation here before calling onLogin
     onLogin(email, password);
+    Navigate("/Dashboard");
   };
 
   const handleSignUp = () => {
     // You can perform any additional validation here before calling onSignUp
     onSignUp(email, password);
+    Navigate("/CreateAccount");
   };
 
   return (
