@@ -5,7 +5,7 @@ const Dashboard = () => {
   let navigate = useNavigate();
 
   return (
-    <div>
+    <div  className= "overlay">
       <h1>Dashboard</h1>
       <button onClick={() => navigate('/Profile')}>Profile</button>
       <button onClick={() => navigate('/Settings')}>Settings</button>

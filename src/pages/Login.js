@@ -26,10 +26,13 @@ const Login = () => {
 
   return (
     <div>
-      <div className="container">
+      <div className="overlay">
         <div className="header">
+        <h2>Login</h2>
+        </div>
+        <div className="container">
           <div className="input">
-            <h2>I am a login</h2>
+            
             <label htmlFor="email"><b>Email</b></label>
             <input
               type="email"
@@ -55,11 +58,17 @@ const Login = () => {
             </button>
 
             <button type="button" className="signupbtn" onClick={handleSignUp}>
-              Sign Up Here
+             Signup Here
+            </button>
+
+            <button type="button" className="pswdbtn" onClick={handleSignUp}>
+             Forgot Password?
             </button>
           </div>
+
         </div>
-      </div>
+        </div>
+      
     </div>
   );
 };
