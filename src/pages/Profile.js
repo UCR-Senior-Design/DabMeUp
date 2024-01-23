@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getDatabase, ref, set, get } from "firebase/database";
-
+import "./Profile.css" 
 
 const Profile = () => {
   const [name, setName] = useState("");
@@ -46,8 +46,11 @@ const Profile = () => {
               alert('Error saving profile: ' + error.message);
             });
         } else {
+          // STILL NEEDS TO BE FIXED!
           // Handle case where there is no existing data
           // (e.g., creating a new profile)
+          alert('new profile created!'); 
+          navigate('/Dashboard');
         }
       }).catch((error) => {
         console.error('Error fetching profile: ', error);
@@ -72,7 +75,7 @@ const Profile = () => {
   }, [auth, navigate]);
 
   return (
-    <div>
+    <div className = "profile-container">
       <h2>Profile</h2>
       <input type="text" placeholder="Name" value={name} onChange={e => setName(e.target.value)} />
       <input type="number" placeholder="Age" value={age} onChange={e => setAge(e.target.value)} />
