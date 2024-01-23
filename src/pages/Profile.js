@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getDatabase, ref, set, get } from "firebase/database";
+
 
 const Profile = () => {
   const [name, setName] = useState("");
@@ -7,16 +10,66 @@ const Profile = () => {
   const [friendPreference, setFriendPreference] = useState("");
   const [interests, setInterests] = useState([]);
   const navigate = useNavigate();
+
+  const auth = getAuth();
+  const database = getDatabase();
+
   const handleInterestChange = (event) => {
     const selectedOptions = Array.from(event.target.selectedOptions, option => option.value);
     setInterests(selectedOptions);
   };
 
   const handleSave = () => {
-    // Save logic here
-    console.log({ name, age, friendPreference, interests });
-    navigate('/Dashboard');
+    const user = auth.currentUser;
+
+    if (user) {
+      get(ref(database, 'users/' + user.uid)).then((snapshot) => {
+        if (snapshot.exists()) {
+          const existingData = snapshot.val();
+          const updatedProfile = {
+            ...existingData,
+            name: name || existingData.name,
+            age: age || existingData.age,
+            friendPreference: friendPreference || existingData.friendPreference,
+            interests: interests.length > 0 ? interests : existingData.interests,
+            email: user.email
+          };
+  
+          set(ref(database, 'users/' + user.uid), updatedProfile)
+            .then(() => {
+              console.log('Profile saved!');
+              alert('Profile saved successfully!');
+              navigate('/Dashboard');
+            })
+            .catch((error) => {
+              console.error('Error saving profile: ', error);
+              alert('Error saving profile: ' + error.message);
+            });
+        } else {
+          // Handle case where there is no existing data
+          // (e.g., creating a new profile)
+        }
+      }).catch((error) => {
+        console.error('Error fetching profile: ', error);
+        alert('Error fetching profile: ' + error.message);
+      });
+    } else {
+      console.log('No user is signed in.');
+      alert('No user is signed in.');
+    }
   };
+
+  // Load user data when the component mounts
+  React.useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, you can fetch their profile here if needed
+      } else {
+        // User is signed out
+        navigate('/login'); // redirect to login page
+      }
+    });
+  }, [auth, navigate]);
 
   return (
     <div>
@@ -42,3 +95,4 @@ const Profile = () => {
 };
 
 export default Profile;
+
