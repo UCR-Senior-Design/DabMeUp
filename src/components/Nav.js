@@ -1,24 +1,30 @@
-import whitelogo from '../images/logo.png'
-import colorLogo from '../images/colorlogo.png'
 import React from "react"; 
 import { useNavigate } from 'react-router-dom';
 
+const Nav = ({ authToken, setShowModal, showModal }) => {
+  let navigate = useNavigate();
 
-const Nav = ({minimal, authToken}) => {
-    let navigate = useNavigate();
-    
-    const handleLoginClick = () =>{ 
-        navigate('/Login'); 
-    };
+  const handleLoginClick = () => { 
+    navigate('/Login'); 
+  };
 
-    return (
-        <nav>
-            <div className = "logo-container">
-            <img className="logo" src={minimal ? colorLogo : whitelogo} alt="" />
-            </div>
-            {!authToken && <button className='nav-button'onClick={handleLoginClick}>Login</button>}
-        </nav>
-    )
-}
+  const handleClick = () => {
+    setShowModal(true);
+  };
 
-export default Nav 
+  return (
+    <nav style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div>
+        {/* Any other navigation elements or branding can be added here */}
+      </div>
+      
+      {!authToken && (
+        <button className="nav-button" onClick={handleClick} disabled={showModal}>
+          Log in
+        </button>
+      )}
+    </nav>
+  );
+};
+
+export default Nav;
