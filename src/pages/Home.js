@@ -11,7 +11,7 @@ const Home = () => {
             navigate('/Login'); // If not authenticated, navigate to Login
         }
     }
-    /*
+    
     return (
         <div className= "overlay">
         <Nav minimal={false} authToken = {authToken}/>
@@ -24,7 +24,8 @@ const Home = () => {
         </div>
         </div>
 
-    )*/
+    )
+    /*
     return (
         <div className= "overlay">
           <Nav minimal={false} authToken={authToken}/>
@@ -39,14 +40,12 @@ const Home = () => {
                 <button className="primary-button" onClick={() => navigate('/CreateAccount')}>
                   Create Account
                 </button>
-                <button className="primary-button" onClick={(handeClick) => navigate('/Login')}>
-                  Log In
-                </button>
+
               </>
             )}
           </div>
         </div>
-      )
+      )*/
 }
 
 export default Home 
