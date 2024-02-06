@@ -72,7 +72,6 @@ nav .logo-container .logo{
   )
 }
 
-<<<<<<< HEAD
 /*---Create Account---
 
 
@@ -188,7 +187,7 @@ nav .logo-container .logo{
 .profile form input[type=submit]:active {
   background-color: rgb(226, 115, 115);
 }
-=======
+
 /*--- Chat Container ---*/
 .chat-container{
   background-color: #fff;
@@ -266,6 +265,5 @@ nav .logo-container .logo{
   margin: 6px;}
 
 
->>>>>>> db3cfe97 (chat container)
 
 
