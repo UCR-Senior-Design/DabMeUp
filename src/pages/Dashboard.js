@@ -12,10 +12,7 @@ const Dashboard = () => {
     {
       name: 'card 1'
     },
-    {
-    name: 'card 2'
 
-    } 
   ]
 
 const[lastDirection, setLastDirection] = useState() 
@@ -38,9 +35,11 @@ const outOfFrame = (name) => {
       <button className='profbtn' onClick={() => navigate('/Profile')}>Profile</button>
      
       <button className='settbtn' onClick={() => navigate('/Settings')}>Settings</button>
+
       {/* Other dashboard content */}
       </div>
-      <h1>Palz</h1>
+      <div className = "pals"><h1>Palz</h1></div>
+      
       
       <ChatContainer/>
      <div className='swipe-container'>
