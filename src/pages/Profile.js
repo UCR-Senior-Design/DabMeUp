@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getDatabase, ref, set, get } from "firebase/database";
-//import "./index.css" 
+ 
 import Nav from '../components/Nav'
 
 const Profile = () => {
   const auth = getAuth();
   const database = getDatabase();
-
+  const [selectedInterest, setSelectedInterest] = useState("");
   const [formData, setFormData] = useState({
     first_name: "",
     dob_day: "",
@@ -54,7 +54,7 @@ const Profile = () => {
             genderInterest: formData.gender_interest,
             about: formData.about,
             url: formData.url,
-            //gender: gender || existingData.gender, 
+            interests: formData.selectedInterest, 
           };
   
           set(ref(database, 'users/' + user.uid), updatedProfile)
@@ -98,29 +98,6 @@ const Profile = () => {
     });
   }, [auth, navigate]);
 
-  /*return (
-    
-    <div className = "profile-container">
-      <h2>Profile</h2>
-      <input type="text" placeholder="Name" value={name} onChange={e => setName(e.target.value)} />
-      <input type="number" placeholder="Age" value={age} onChange={e => setAge(e.target.value)} />
-      <select value={friendPreference} onChange={e => setFriendPreference(e.target.value)}>
-        <option value="">Select Preference</option>
-        <option value="guys">Guys</option>
-        <option value="girls">Girls</option>
-      </select>
-      <select multiple={true} value={interests} onChange={handleInterestChange}>
-        <option value="a">Interest A</option>
-        <option value="b">Interest B</option>
-        <option value="c">Interest C</option>
-        <option value="d">Interest D</option>
-        <option value="e">Interest E</option>
-        <option value="f">Interest F</option>
-      </select>
-      <textarea placeholder="Bio" value={bio} onChange={handleBioChange}></textarea>
-      <button onClick={handleSave}>Save</button>
-    </div>
-  );*/
   return (
     <>
         <Nav
@@ -133,7 +110,10 @@ const Profile = () => {
         <div className="profile">
             <h2>CREATE ACCOUNT</h2>
 
-            <form onSave={handleSave}>
+            <form onSubmit={(e) => { 
+              e.preventDefault(); 
+              handleSave(); 
+            }}>
                 <section>
                     <label htmlFor="first_name">First Name</label>
                     <input
@@ -252,6 +232,26 @@ const Profile = () => {
                         <label htmlFor="everyone-gender-interest">Everyone</label>
 
                     </div>
+                    <label htmlFor="interests">Interests</label>
+                      <select
+                        id="interests"
+                        name="interests"
+                        value={selectedInterest}
+                        onChange={(e) => setSelectedInterest(e.target.value)}
+                        required={true}
+                      >
+                        <option value="">Select an Interest</option>
+                        <option value="sports">Sports</option>
+                        <option value="books">Books</option>
+                        <option value="exercising">Exercising</option>
+                        <option value="technology">Technology</option>
+                        <option value="gaming">Gaming</option>
+                        <option value="music">Music</option>
+                        <option value="movies">Movies</option>
+                        <option value="art">Art</option>
+                        <option value="traveling">Traveling</option>
+                        <option value="cooking">Cooking</option>
+                      </select>
 
                     <label htmlFor="about">About me</label>
                     <input
