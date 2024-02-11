@@ -44,7 +44,8 @@ const Dashboard = () => {
       <h1>Dashboard</h1>
       <button onClick={() => navigate('/Profile')}>Profile</button>
       <button onClick={() => navigate('/Settings')}>Settings</button>
-      <div>
+      
+      {/*<div>
         <input
           type="text"
           placeholder="Search users by first name..."
@@ -59,7 +60,8 @@ const Dashboard = () => {
         {searchResults.map((user) => (
           <div key={user.id}>{user.first_name}</div>
         ))}
-      </div>
+        </div>*/}
+      
       {/* Other dashboard content */}
     </div>
   );
