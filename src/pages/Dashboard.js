@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ChatContainer from '../components/ChatContainer';
 import TinderCard from 'react-tinder-card';
-import { useState  } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { database } from '../firebase'; // Ensure this is the correct path
 import { ref, query, orderByChild, startAt, endAt, onValue } from "firebase/database";
