@@ -13,7 +13,7 @@ const CreateAccount = () => {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       alert("Account created successfully!");
-      navigate("/Dashboard");
+      navigate("/Profile");
     } catch (error) {
       console.error("Error signing up:", error);
       alert(`Failed to create account: ${error.message}`);
