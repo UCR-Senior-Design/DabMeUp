@@ -34,7 +34,7 @@ const Profile = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevents the default form submission
+    e.preventDefault(); 
     const user = auth.currentUser;
 
     if (user) {

@@ -2,34 +2,38 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ChatContainer from '../components/ChatContainer';
 import TinderCard from 'react-tinder-card';
-import { database } from '../firebase'; // Make sure this path is correct
+import { database } from '../firebase';
 import { ref, onValue } from "firebase/database";
+import { getAuth } from 'firebase/auth'; 
 
 const Dashboard = () => {
   let navigate = useNavigate();
-  
   const [userProfiles, setUserProfiles] = useState([]);
+  const auth = getAuth(); 
+  const currentUserId = auth.currentUser?.uid; 
 
   useEffect(() => {
-    const usersRef = ref(database, 'users'); 
+    const usersRef = ref(database, 'users');
     onValue(usersRef, (snapshot) => {
       const users = snapshot.val();
       const profiles = [];
       for (let id in users) {
-        let user = users[id];
-        profiles.push({
-          id: id,
-          name: user.first_name,
-          gender: `Gender: ${user.genderIdentity}`,
-          url: user.url,
-          about: `About me: ${user.about}, Interests: ${user.interests}`,
-        });
+        if (id !== currentUserId) {
+          let user = users[id];
+          profiles.push({
+            id: id,
+            name: user.first_name,
+            gender: `Gender: ${user.genderIdentity}`,
+            url: user.url,
+            about: `About me: ${user.about}, Interests: ${user.interests}`,
+          });
+        }
       }
       setUserProfiles(profiles);
     });
-  }, []);
+  }, [currentUserId]); 
 
-  const [lastDirection, setLastDirection] = useState(); 
+  const [lastDirection, setLastDirection] = useState();
 
   const swiped = (direction, name) => {
     console.log('removing: ', name);
@@ -40,14 +44,11 @@ const Dashboard = () => {
     console.log(name + ' left the screen!');
   };
 
-  // Additional states and functions...
-  
   return (
     <div className="dashboard">
       <div className='navbar'>
         <button className='profbtn' onClick={() => navigate('/Profile')}>Profile</button>
         <button className='settbtn' onClick={() => navigate('/Settings')}>Settings</button>
-        {/* Other dashboard content */}
       </div>
       <div className="pals"><h1>Palz</h1></div>
       <ChatContainer/>
