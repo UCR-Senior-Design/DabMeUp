@@ -8,6 +8,7 @@ const Profile = () => {
   const auth = getAuth();
   const database = getDatabase();
   const navigate = useNavigate();
+  
   const [formData, setFormData] = useState({
     first_name: "",
     dob_day: "",
@@ -18,7 +19,8 @@ const Profile = () => {
     gender_interest: "woman",
     url: "",
     about: "",
-    matches: []
+    matches: [],
+    interests: "",
   });
 
   const handleChange = (e) => {
@@ -45,6 +47,7 @@ const Profile = () => {
         genderInterest: formData.gender_interest,
         about: formData.about,
         url: formData.url,
+        interests: formData.interests,
       };
 
       set(userProfileRef, updatedProfile)
@@ -197,6 +200,26 @@ const Profile = () => {
                 />
                 <label htmlFor="everyone-gender-interest">Everyone</label>
               </div>
+              <label htmlFor="interests">Interests</label>
+              <select
+                id="interests"
+                name="interests"
+                value={formData.interests|| ''}
+                onChange={handleChange}
+                required={true}
+              >
+                <option value="">Select an Interest</option>
+                <option value="sports">Sports</option>
+                <option value="books">Books</option>
+                <option value="exercising">Exercising</option>
+                <option value="technology">Technology</option>
+                <option value="gaming">Gaming</option>
+                <option value="music">Music</option>
+                <option value="movies">Movies</option>
+                <option value="art">Art</option>
+                <option value="traveling">Traveling</option>
+                <option value="cooking">Cooking</option>
+              </select>
 
               <label htmlFor="about">About Me</label>
               <input
