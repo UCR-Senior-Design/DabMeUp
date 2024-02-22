@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-<<<<<<< HEAD
 import ChatContainer from "../components/ChatContainer";
-=======
-import ChatContainer from '../components/ChatContainer';
 import TinderCard from 'react-tinder-card';
 import { database } from '../firebase'; // Make sure this path is correct
 import { ref, onValue } from "firebase/database";
->>>>>>> 23c5173b2f777d7db17a93c895b8731a2a4e1144
 
 const Dashboard = () => {
   let navigate = useNavigate();
@@ -44,22 +40,11 @@ const Dashboard = () => {
     console.log(name + ' left the screen!');
   };
 
-  // Additional states and functions...
-  
   return (
-<<<<<<< HEAD
-    <div className="overlay">
-      <h1>Dashboard</h1>
-      <button onClick={() => navigate('/Profile')}>Profile</button>
-      <button onClick={() => navigate('/Settings')}>Settings</button>
-      <ChatContainer /> {/* Include ChatContainer */}
-      {/* Other dashboard content */}
-=======
     <div className="dashboard">
       <div className='navbar'>
         <button className='profbtn' onClick={() => navigate('/Profile')}>Profile</button>
         <button className='settbtn' onClick={() => navigate('/Settings')}>Settings</button>
-        {/* Other dashboard content */}
       </div>
       <div className="pals"><h1>Palz</h1></div>
       <ChatContainer/>
@@ -82,7 +67,6 @@ const Dashboard = () => {
           )}
         </div>
       </div>
->>>>>>> 23c5173b2f777d7db17a93c895b8731a2a4e1144
     </div>
   );
 };
