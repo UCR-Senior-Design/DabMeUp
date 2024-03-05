@@ -280,7 +280,7 @@ nav .logo-container .logo{
   left: 300px;
   top: 0px;
   /* background-position: center; */
-  background-color: rgba(128, 128, 128, 0.472);
+  background-color: rgba(128, 128, 128);
 }
 .info{
   width:300px;

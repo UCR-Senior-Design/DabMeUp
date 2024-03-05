@@ -25,7 +25,8 @@ const Dashboard = () => {
             name: user.first_name,
             gender: `Gender: ${user.genderIdentity}`,
             url: user.url,
-            about: `About me: ${user.about}, Interests: ${user.interests}`,
+            about: `About me: ${user.about}`, 
+            Interests: `Interests: ${user.interests}`,
           });
         }
       }
@@ -64,6 +65,7 @@ const Dashboard = () => {
                     <h3>{userProfile.name}</h3>
                     <h3>{userProfile.gender}</h3>
                     <h3>{userProfile.about}</h3>
+                    <h3>{userProfile.Interests}</h3>
                   </div>
                 </div>
               </div>
