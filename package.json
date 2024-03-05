@@ -21,7 +21,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test", 
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -41,5 +41,27 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.23.3",
+    "babel-jest": "^29.7.0",
+    "jest": "^27.5.1"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  },
+
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+    },
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
+    
+    
   }
 }
