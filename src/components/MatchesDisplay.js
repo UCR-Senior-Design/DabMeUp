@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { ref, onValue } from 'firebase/database';
-import { database } from '../firebase'; // Ensure this path correctly points to your Firebase setup file
+import { database } from '../firebase'; 
 
-const MatchesDisplay = ({ currentUserID }) => {
+const MatchesDisplay = ({ currentUserID, imageWidth = 300, imageHeight = 300 }) => {
     const [matchedProfiles, setMatchedProfiles] = useState([]);
 
     useEffect(() => {
@@ -26,7 +26,11 @@ const MatchesDisplay = ({ currentUserID }) => {
                     onValue(userRef, snap => {
                         const profile = snap.val();
                         if (profile) {
-                            resolve({ ...profile, userID: matchUserID });
+                            resolve({
+                                ...profile,
+                                userID: matchUserID,
+                                url: profile.url // Ensure this is the same property used in the user profiles
+                            });
                         } else {
                             resolve(null); // Handle case where user data might not exist or be accessible
                         }
@@ -41,39 +45,24 @@ const MatchesDisplay = ({ currentUserID }) => {
         }, { onlyOnce: true });
     }, [currentUserID]);
 
+    const imageStyle = {
+        width: `${imageWidth}px`,
+        height: `${imageHeight}px`,
+        backgroundSize: 'contain',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center'
+    };
+
     return (
         <div className="matches-display">
-            {matchedProfiles.map((profile) => {
-                // Log the photoURL to the console
-                console.log(profile.photoURL); 
-
-                return (
-                    <div key={profile.userID} className="match-profile">
-                        <img 
-                            src={profile.photoURL || 'path/to/default/image.jpg'} 
-                            alt={profile.first_name || "Match's photo"} 
-                            className="match-photo" 
-                        />
-                        <div>{profile.first_name}</div>
-                    </div>
-                );
-            })}
+            {matchedProfiles.map((profile) => (
+                <div key={profile.userID} className="match-profile">
+                    <div style={{ ...imageStyle, backgroundImage: `url(${profile.url})` }} className="match-photo"></div>
+                    <div>{profile.first_name}</div>
+                </div>
+            ))}
         </div>
     );
 };
 
 export default MatchesDisplay;
-
-
-
-
-
-
-
-
-
-
-
-
-
-

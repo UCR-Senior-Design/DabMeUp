@@ -16,28 +16,38 @@ const Dashboard = () => {
 
   useEffect(() => {
     const usersRef = ref(database, 'users');
-    onValue(usersRef, (snapshot) => {
-      const users = snapshot.val();
-      const profiles = [];
-      let currentUserData = null;
-      for (let id in users) {
-        if (id !== currentUserId) {
-          let user = users[id];
-          profiles.push({
-            id: id,
-            name: user.first_name,
-            gender: `Gender: ${user.genderIdentity}`,
-            url: user.url,
-            about: `About me: ${user.about}, Interests: ${user.interests}`,
-          });
-        } else {
-          currentUserData = { ...users[id], id };
+    const swipesRef = ref(database, `swipes/${currentUserId}`);
+    onValue(swipesRef, (swipeSnapshot) => {
+      const swipes = swipeSnapshot.val() || {};
+      onValue(usersRef, (snapshot) => {
+        const users = snapshot.val();
+        const profiles = [];
+        let currentUserData = null;
+  
+        for (let id in users) {
+          if (id !== currentUserId && !swipes[id]) {
+            let user = users[id];
+            profiles.push({
+              id: id,
+              name: user.first_name,
+              gender: `Gender: ${user.genderIdentity}`,
+              url: user.url,
+              about: `About me: ${user.about}, Interests: ${user.interests}`,
+            });
+          } else if (id === currentUserId) {
+            currentUserData = { ...users[id], id };
+          }
         }
-      }
-      setUserProfiles(profiles);
-      setCurrentUser(currentUserData);
+  
+        setUserProfiles(profiles);
+        setCurrentUser(currentUserData);
+      });
+  
     });
+  
   }, [currentUserId]);
+  
+  
 
   const swiped = (direction, swipedUserId) => {
     console.log('removing: ', swipedUserId);
