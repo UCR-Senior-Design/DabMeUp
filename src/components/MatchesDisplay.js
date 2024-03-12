@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ref, onValue } from 'firebase/database';
 import { database } from '../firebase'; 
 
-const MatchesDisplay = ({ currentUserID, imageWidth = 300, imageHeight = 300 }) => {
+const MatchesDisplay = ({ currentUserID, onSelectMatch, imageWidth = 300, imageHeight = 300 }) => {
     const [matchedProfiles, setMatchedProfiles] = useState([]);
 
     useEffect(() => {
@@ -29,10 +29,10 @@ const MatchesDisplay = ({ currentUserID, imageWidth = 300, imageHeight = 300 }) 
                             resolve({
                                 ...profile,
                                 userID: matchUserID,
-                                url: profile.url // Ensure this is the same property used in the user profiles
+                                url: profile.url
                             });
                         } else {
-                            resolve(null); // Handle case where user data might not exist or be accessible
+                            resolve(null);
                         }
                     }, { onlyOnce: true });
                 })
@@ -56,7 +56,7 @@ const MatchesDisplay = ({ currentUserID, imageWidth = 300, imageHeight = 300 }) 
     return (
         <div className="matches-display">
             {matchedProfiles.map((profile) => (
-                <div key={profile.userID} className="match-profile">
+                <div key={profile.userID} className="match-profile" onClick={() => onSelectMatch(profile.userID)}>
                     <div style={{ ...imageStyle, backgroundImage: `url(${profile.url})` }} className="match-photo"></div>
                     <div>{profile.first_name}</div>
                 </div>
@@ -66,3 +66,4 @@ const MatchesDisplay = ({ currentUserID, imageWidth = 300, imageHeight = 300 }) 
 };
 
 export default MatchesDisplay;
+
