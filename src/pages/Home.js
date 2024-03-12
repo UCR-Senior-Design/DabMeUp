@@ -21,10 +21,12 @@ const Home = () => {
         <div className= "overlay">
             <Nav minimal={false} authToken={authToken} />
             <div className="home">
-                <h1>Click Right</h1>
+                <h1 class="homepage-header">Palz</h1>
                 <button className="primary-button" onClick={handleClick}>
                     {authToken ? 'Signout' : 'Create Account'}
                 </button>
+
+                <h2 class="slogan">Hurry! Your friend is waiting :)</h2>
             </div>
         </div>
     );

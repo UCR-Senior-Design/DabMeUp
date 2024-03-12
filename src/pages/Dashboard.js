@@ -49,7 +49,6 @@ const Dashboard = () => {
     <div className="dashboard">
       <div className='navbar'>
         <button className='profbtn' onClick={() => navigate('/Profile')}>Profile</button>
-        <button className='settbtn' onClick={() => navigate('/Settings')}>Settings</button>
       </div>
       <div className="pals"><h1>Palz</h1></div>
       <ChatContainer/>

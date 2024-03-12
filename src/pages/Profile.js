@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getDatabase, ref, set } from "firebase/database";
-import Nav from '../components/Nav';
+
 
 const Profile = () => {
   const auth = getAuth();
@@ -74,11 +74,11 @@ const Profile = () => {
 
   return (
     <>
-      <Nav
-        minimal={true}
-        setShowModal={() => {}}
-        showModal={false}
-      />
+    <div className='navbar'>
+        <button className='homebtn' onClick={() => navigate('/Dashboard')}>Home</button>
+        
+      </div>
+      <div className="profilecontainer">
       <div className="profile">
         <h2>CREATE ACCOUNT</h2>
         <form onSubmit={handleSubmit}>
@@ -250,6 +250,7 @@ const Profile = () => {
             </section>
           </div>
         </form>
+      </div>
       </div>
     </>
   );

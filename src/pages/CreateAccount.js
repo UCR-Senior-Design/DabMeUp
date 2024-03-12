@@ -26,8 +26,8 @@ const CreateAccount = () => {
       <div className="overlay">
         
         <div className="header">
-        <h2>Create an Account</h2>
-        <div className="container">
+        
+        <div className="CAcontainer">
           <div className="input">
             
             <label htmlFor="email"><b>Email</b></label>
@@ -60,11 +60,8 @@ const CreateAccount = () => {
             />      
 
 
-            <button  type="button" className="signupbtn" onClick={handleSignUp}>
-              Sign Up
-            </button>
-            <button  type="button" className="Loginbtn" onClick={handleSignUp}>
-              Log In
+            <button  type="button" className="loginbtn" onClick={handleSignUp}>
+              Create Account
             </button>
           </div>
           </div>
