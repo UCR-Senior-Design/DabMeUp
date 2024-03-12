@@ -63,7 +63,7 @@ const CreateAccount = () => {
             <button  type="button" className="signupbtn" onClick={handleSignUp}>
               Sign Up
             </button>
-            <button  type="button" className="Loginbtn" onClick={handleSignUp}>
+            <button  type="button" className="loginbtn" onClick={handleSignUp}>
               Log In
             </button>
           </div>

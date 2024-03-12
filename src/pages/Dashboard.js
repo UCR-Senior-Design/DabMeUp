@@ -50,6 +50,9 @@ const Dashboard = () => {
       <div className='navbar'>
         <button className='profbtn' onClick={() => navigate('/Profile')}>Profile</button>
         <button className='settbtn' onClick={() => navigate('/Settings')}>Settings</button>
+        <button className='aboutusbtn' >About Us</button>
+        <button className='contactusbtn' >Contact Us</button>
+        <button className='logoutbtn' onClick={() => navigate('/')}>Log Out</button>
       </div>
       <div className="pals"><h1>Palz</h1></div>
       <ChatContainer/>
@@ -62,10 +65,18 @@ const Dashboard = () => {
               <div style={{backgroundImage: `url(${userProfile.url})`}} className="card">
                 <div className='details'>
                   <div className='info'>
-                    <h3>{userProfile.name}</h3>
-                    <h3>{userProfile.gender}</h3>
-                    <h3>{userProfile.about}</h3>
-                    <h3>{userProfile.Interests}</h3>
+                   <div className = 'name'>
+                   <h3>Hello I am, {userProfile.name}</h3> 
+                   </div> 
+                   <div className = 'gender'>
+                   <h3>{userProfile.gender}</h3>
+                   </div> 
+                   <div className = 'about'>
+                   <h3>{userProfile.about}</h3>
+                   </div> 
+                   <div className = 'interest'>
+                   <h3>{userProfile.Interests}</h3>
+                   </div> 
                   </div>
                 </div>
               </div>
