@@ -25,6 +25,7 @@ const Home = () => {
                 <button className="primary-button" onClick={handleClick}>
                     {authToken ? 'Signout' : 'Create Account'}
                 </button>
+                <h2 className="slogan">Hurry! Your friend is waiting :)</h2>
             </div>
         </div>
     );

@@ -79,7 +79,8 @@ const Profile = () => {
         setShowModal={() => {}}
         showModal={false}
       />
-      <div className="profile">
+      <div className="profilecontainer">
+        <div className="profile">
         <h2>CREATE ACCOUNT</h2>
         <form onSubmit={handleSubmit}>
           <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "20px" }}>
@@ -250,6 +251,7 @@ const Profile = () => {
             </section>
           </div>
         </form>
+        </div>
       </div>
     </>
   );

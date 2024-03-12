@@ -27,7 +27,7 @@ const CreateAccount = () => {
         
         <div className="header">
         <h2>Create an Account</h2>
-        <div className="container">
+        <div className="CAcontainer">
           <div className="input">
             
             <label htmlFor="email"><b>Email</b></label>
@@ -60,11 +60,9 @@ const CreateAccount = () => {
             />      
 
 
-            <button  type="button" className="signupbtn" onClick={handleSignUp}>
-              Sign Up
-            </button>
+            
             <button  type="button" className="loginbtn" onClick={handleSignUp}>
-              Log In
+              Create Account
             </button>
           </div>
           </div>
