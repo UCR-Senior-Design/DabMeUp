@@ -59,58 +59,117 @@ nav .logo-container .logo{
 
 /*---Home page---*/
 
-.overlay{
-  width: 100vw;
-  height: 100vh;
-  position: fixed; 
-  background: linear-gradient(
-    to bottom, 
-    rgba(255, 0, 0, 0.65) 0%, 
-    rgba(0,0,0,0) 100%
-   
+body {
+  background-image: url('images/homepage.webp');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
+  background-origin: padding-box;
 
-  )
 }
+.homepage-header {
+  color: #000000; 
+}
+
+.slogan { 
+  color: #000000; 
+}
+/*---Login Form-------*/ 
+
+.lgcontainer {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #FF5F6D; 
+  background: -webkit-linear-gradient(to right, #ff2d3f, #f19d9d); 
+  background: linear-gradient(to right, #d12130, #ffc7c7); 
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  color: #000000;
+}
+
+.input {
+  display: block;
+  margin: 20px auto;
+  width: 90%;
+}
+
+.input input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 15px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+}
+
+.loginbtn {
+  width: calc(100% - 30px);
+  padding: 15px;
+  border: none;
+  border-radius: 20px;
+  background-color: #fff;
+  color: #FF5F6D;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 10px 15px;
+  cursor: pointer;
+}
+
+.signupbtn, .frgtpswdbtn {
+  background: none;
+  border: none;
+  color: #000000;
+  text-decoration: underline;
+  cursor: pointer;
+  display: block;
+  margin: 10px auto;
+}
+
 
 /*---Create Account---*/
 
-.input{
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  gap: 9px;
-
-  margin-top: 20px;
+.CAnput{
+  display: block;
+  margin: 20px auto;
+  width: 90%;
 }
-.container{
- position: center;
- top: 50px;
- margin-left: auto;
- margin-right: auto;
- max-width: 360px;
- min-width: 300px;
- height: 400px;
- background-color: white;
- border-radius: 5px;
- padding: 20px;
-
-}
-
-.pswdbtn{
+.CAinput input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 15px;
   border: none;
-  background-color: inherit;
-  padding: 14px 28px;
-  font-size: 16px;
-  cursor: pointer;
-  display: inline-block;
+  border-radius: 20px;
+  outline: none;
 }
 
-.password{
+.CAcontainer{
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #FF5F6D; 
+  background: -webkit-linear-gradient(to right, #ff2d3f, #f19d9d); 
+  background: linear-gradient(to right, #d12130, #ffc7c7); 
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  color: #000000;
+}
+
+
+
+.CApassword{
   position: left;
 }
 
-
 /*-------- Profile Page --------*/
+.profilecontainer{ 
+  background: #ffffff; 
+  
+}
 .profile {
   border-top: solid 1px rgb(213, 213, 213);
 }
