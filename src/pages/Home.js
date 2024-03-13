@@ -3,7 +3,6 @@ import Nav from '../components/Nav';
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
-   
     const authToken = false;
     const navigate = useNavigate();
 
@@ -16,12 +15,12 @@ const Home = () => {
             navigate('/CreateAccount'); // Replace with the actual path to your Create Account page
         }
     };
-    
+
     return (
-        <div className= "overlay">
+        <div className="overlay">
             <Nav minimal={false} authToken={authToken} />
             <div className="home">
-                <h1>Click Right</h1>
+                <h1>P A L Z</h1>
                 <button className="primary-button" onClick={handleClick}>
                     {authToken ? 'Signout' : 'Create Account'}
                 </button>
@@ -30,4 +29,6 @@ const Home = () => {
         </div>
     );
 }
-export default Home
+
+export default Home;
+

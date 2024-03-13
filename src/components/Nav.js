@@ -10,11 +10,9 @@ const Nav = ({minimal, authToken}) => {
 
   return (
     <nav>
-
-        {!authToken && <button className='nav-button'onClick={handleLoginClick}>Login</button>}
+        {!authToken && <button className='nav-button' onClick={handleLoginClick}>Login</button>}
     </nav>
-)
+  );
 }
 
-
-export default Nav
+export default Nav;
