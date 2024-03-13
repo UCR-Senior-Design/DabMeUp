@@ -59,61 +59,503 @@ nav .logo-container .logo{
 
 /*---Home page---*/
 
-.overlay{
+body {
+  background-image: url('images/homepage.webp');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
+  background-origin: padding-box;
+
+}
+.homepage-header {
+  color: #000000; 
+}
+
+.slogan { 
+  color: #000000; 
+}
+/*---Login Form-------*/ 
+
+.lgcontainer {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #FF5F6D; 
+  background: -webkit-linear-gradient(to right, #ff2d3f, #f19d9d); 
+  background: linear-gradient(to right, #d12130, #ffc7c7); 
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  color: #000000;
+}
+
+.input {
+  display: block;
+  margin: 20px auto;
+  width: 90%;
+}
+
+.input input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 15px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+}
+
+.loginbtn {
+  width: calc(100% - 30px);
+  padding: 15px;
+  border: none;
+  border-radius: 20px;
+  background-color: #fff;
+  color: #FF5F6D;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 10px 15px;
+  cursor: pointer;
+}
+
+.signupbtn, .frgtpswdbtn {
+  background: none;
+  border: none;
+  color: #000000;
+  text-decoration: underline;
+  cursor: pointer;
+  display: block;
+  margin: 10px auto;
+}
+
+
+/*---Create Account---*/
+
+.CAnput{
+  display: block;
+  margin: 20px auto;
+  width: 90%;
+}
+.CAinput input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 15px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+}
+
+.CAcontainer{
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #FF5F6D; 
+  background: -webkit-linear-gradient(to right, #ff2d3f, #f19d9d); 
+  background: linear-gradient(to right, #d12130, #ffc7c7); 
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  color: #000000;
+}
+
+
+
+.CApassword{
+  position: left;
+}
+
+/*-------- Profile Page --------*/
+.profilecontainer{ 
+  background: #ffffff; 
+  
+}
+.profile {
+  border-top: solid 1px rgb(213, 213, 213);
+}
+
+.profile form {
+  display: flex;
+  justify-content: center;
+}
+
+.profile form section {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 35%;
+  text-align: start;
+}
+
+.profile form input {
+  padding: 15px 30px;
+  margin: 10px 0;
+  font-size: 15px;
+  border: solid 2px rgb(219, 219, 219);
+  border-radius: 10px;
+}
+
+.profile form label {
+  margin: 10px 0;
+}
+
+.profile form .multiple-input-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.profile form input::-webkit-outer-spin-button,
+.profile form input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.profile form .multiple-input-container input {
+  margin-right: 10px;
+}
+
+.profile form .multiple-input-container label {
+  padding: 10px;
+  border: solid 2px rgb(144, 144, 144);
+  border-radius: 10px;
+  transition: all 0.3s;
+  margin-right: 10px;
+}
+
+.profile form input[type=radio] {
+  display: none;
+}
+
+.profile form input[type=number] {
+  width: 10%;
+}
+
+.profile form input[type=radio]:checked + label {
+  border: solid 2px rgb(221, 39, 22);
+}
+
+.profile form input[type=submit]:hover {
+  background-color: rgb(235, 235, 235);
+}
+
+.profile form input[type=submit]:active {
+  background-color: rgb(226, 115, 115);
+}
+
+/* dashboard UI */
+
+
+.pals{
+  position: absolute;
+  /* background: linear-gradient(260deg, rgb(250, 128, 114), rgba(255, 0, 0, 0.591));  */
+  border-left: gray;
+  width:70%;
+  height: 100px;
+  left: 30%;
+
+  font-size: larger;
+  /* background-color: red; */
+  
+
+}
+.dashboard{
+  background: linear-gradient(0deg, rgb(247, 246, 246), rgba(255, 0, 0, 0.591)); 
+}
+
+.navbar{
+  position: absolute;
+  background-color:  rgba(255, 255, 255, 0.364);
+  top: 100px;
+  right:0%;
+  width: 70%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  /* justify-content: flex-end; */
+ }
+
+ .profbtn{
+  background-color: rgba(252, 30, 30, 0); 
+  border-radius: 25px;
+  color: white;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  font-style: oblique;
+
+
+
+ }
+
+ .settbtn{
+  background-color: rgba(252, 30, 30, 0); 
+  border-radius: 25px;
+  color: white;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  font-style: oblique;
+ }
+ .aboutusbtn{
+  background-color: rgba(252, 30, 30, 0); 
+  border-radius: 25px;
+  color: white;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  font-style: oblique;
+
+ }
+ .contactusbtn{
+  background-color: rgba(252, 30, 30, 0); 
+  border-radius: 25px;
+  color: white;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  font-style: oblique;
+
+ }
+
+ .logoutbtn{
+  background-color: rgba(252, 30, 30, 0); 
+  border-radius: 25px;
+  color: white;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  font-style: oblique;
+
+
+ }
+
+
+
+.dashboard{
   width: 100vw;
   height: 100vh;
   position: fixed; 
-  background: linear-gradient(
-    to bottom, 
-    rgba(255, 0, 0, 0.65) 0%, 
-    rgba(0,0,0,0) 100%
-   
-
-  )
+  /* background: blue; */
 }
-
-/*---Create Account---
-
-
-
-*/
-
-.input{
+.dashboard .swipe-container {
+  width: 70%;
   display: flex;
   flex-direction: column;
-  align-items: left;
-  gap: 9px;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* background-color: blue; */
 
-  margin-top: 20px;
-}
-.container{
- position: center;
- top: 50px;
- margin-left: auto;
- margin-right: auto;
- max-width: 360px;
- min-width: 300px;
- height: 400px;
- background-color: white;
- border-radius: 5px;
- padding: 20px;
 
 }
 
+.dashboard .cardcontainer {
+  position: absolute  ;
+ 
+  left: 30%;
+  width: 70%;
+  border: 30px green;
+  /* background-color:pink; */
+  top: 150px;
+  height: 800px;
+  
+}
+
+.card {
+  width: 350px;
+  height: 450px;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  background-size: cover;
+  /* margin: auto; */
+  position: absolute;
+  left: 20%;
+  top: 95px;
+  box-shadow: 5px 9px #888888;
+  /* background-position: center; */
+  /* background-color: pink; */
+
+  
+}
+
+.details{
+  width: 300px;
+  height: 450px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  background-size: cover;
+  /* margin: auto; */
+  position: absolute;
+   box-shadow: 5px 15px #888888;
+  left: 350px;
+  top: 0px;
+  /* background-position: center; */
+  background-color: rgb(255, 255, 255);
+  /* background:linear-gradient(200deg, rgb(255, 40, 40), rgb(250, 128, 114)); */
+  z-index: -1;
+}
+.info{
+  width:300px;
+  height: 450px;
+  position: absolute;
+  bottom:0px;
+  left: auto;
+
+  
+}
+
+.info .name{
+ text-align: left;
+ position: absolute;
+ left: 10px;
+ top:10%;
+ font-size: x-large;
+ font-style:oblique;
+
+}
+.info .gender{
+  text-align: left;
+  position: absolute;
+  left: 10px;
+  top:90%;
+  font-size: smaller;
+ 
+ }
+
+ .info .interest{
+  text-align: left;
+  position: absolute;
+  left: 10px;
+  top:30%;
+  font-size: x-large;
+ 
+ }
+ .info .about{
+  text-align: left;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  font-size: x-large;
+
+ 
+ }
 
 
-.pswdbtn{
+/*--- Chat Container ---*/
+.chat-container{
+  background-color: #fff;
+  box-shadow: rgba(0,0,0,0.05) 0px 6px 24px 0px,
+  rgba(0,0,0,0.08) 0px 0px 0px 1px;
+  width: 30%;
+  text-align: left;
+  z-index: 1;
+}
+
+.chat-container .chat-container-header{
+  background: linear-gradient(260deg, rgb(255, 0, 0), rgb(250, 128, 114)); 
+  height: 100px;
+  /* width: 1050px; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-container .log-out-icon{
+  position: absolute;
+  left: 25%;
+}
+
+.chat-container .option{
   border: none;
-  background-color: inherit;
-  padding: 14px 28px;
-  font-size: 16px;
-  cursor: pointer;
-  display: inline-block;
+  background-color: rgb(255, 255, 255);
+  border-bottom: solid 4px rgb(243, 33, 33);
+  font-size: 20px;
+  margin: 2px;
+  padding: 10px;
 }
 
-.password{
-  position: left;
+.chat-container .option:disabled{
+  border-bottom: solid 4px rgb(187,187,187);
 }
+.chat-container .profile,
+.chat-container .log-out-icon{
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  color: rgb(255,255,255);
+}
+
+.img-container{
+  height: 30px;
+  width: 30px;
+  border-radius: 15px;
+  overflow: hidden;
+  margin: 10px;
+}
+
+.img-container .img{
+  width: 100%;
+}
+
+/*--- Chat Display ---*/
+.chat-display{
+  padding: 20px;
+  height: 60vh;
+  overflow-y: auto;
+}
+
+/*--- Chat Input ---*/
+.chat-input{
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-input .secondary-button{
+  color: rgb(121,119,119);
+  background-color: rgb(255, 255, 255);
+  font-weight: 500;
+  font-size: 15px;
+  text-transform: uppercase;
+  padding: 12px 30px;
+  border-radius: 30px;
+  border: solid 2px rgb(121,119,119);
+  margin: 6px;}
+
+ 
+
+
+
+  .settings-container {
+    width: 100vw;
+    height: 100vh;
+    position: fixed; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: top;
+    background: linear-gradient(45deg, rgb(255, 0, 0), rgb(250, 128, 114));
+    background: linear-gradient(
+      to bottom, 
+      rgba(255, 0, 0, 0.65) 0%, 
+      rgba(0,0,0,0) 100%
+    ); 
+  }
 
 /*-------- Profile Page --------*/
 .profile {

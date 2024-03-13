@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
-import { auth } from '../firebase'; // Import Firebase auth
-import { signInWithEmailAndPassword } from "firebase/auth"; // Import from Firebase auth
+import { auth } from '../firebase'; 
+import { signInWithEmailAndPassword } from "firebase/auth"; 
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -25,50 +25,40 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <div className="overlay">
-        <div className="header">
+    <div className="overlay">
+      <div className="lgcontainer">
         <h2>Login</h2>
+        <div className="input">
+        <label htmlFor="email"><b>Email</b></label>
+              <input
+                type="email"
+                placeholder="Enter email"
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+
+              <label htmlFor="password"><b>Password</b></label>
+              <input
+                type="password"
+                placeholder="Enter password"
+                name="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
         </div>
-        <div className="container">
-          <div className="input">
-            
-            <label htmlFor="email"><b>Email</b></label>
-            <input
-              type="email"
-              placeholder="Enter email"
-              name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-
-            <label htmlFor="password"><b>Password</b></label>
-            <input
-              type="password"
-              placeholder="Enter password"
-              name="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-
-            <button type="button" className="loginbtn" onClick={handleLogin}>
-              Log In
-            </button>
-
-            <button type="button" className="signupbtn" onClick={handleSignUp}>
-             Signup Here
-            </button>
-
-            <button type="button" className="pswdbtn" onClick={handleSignUp}>
-             Forgot Password?
-            </button>
-          </div>
-
-        </div>
-        </div>
-      
+        <button type="button" className="loginbtn" onClick={handleLogin}>
+          Log In
+        </button>
+        <button type="button" className="signupbtn" onClick={handleSignUp}>
+          Signup Here
+        </button>
+        <button type="button" className="frgtpswdbtn" onClick={handleSignUp}>
+          Forgot Password?
+        </button>
+      </div>
     </div>
   );
 };

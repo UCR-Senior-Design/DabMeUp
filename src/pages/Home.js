@@ -1,51 +1,33 @@
-import Nav from '../components/Nav'
-import { useNavigate } from "react-router-dom"; 
+import React from "react";
+import Nav from '../components/Nav';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
-    let navigate = useNavigate();
-    const authToken = false
-    const handeClick = () => {
+   
+    const authToken = false;
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        console.log('clicked');
         if (authToken) {
-            navigate('/Dashboard'); // If user is authenticated, navigate to Dashboard
+            // Implement signout logic if needed
         } else {
-            navigate('/Login'); // If not authenticated, navigate to Login
+            // Navigate to Create Account page
+            navigate('/CreateAccount'); // Replace with the actual path to your Create Account page
         }
-    }
+    };
     
     return (
         <div className= "overlay">
-        <Nav minimal={false} authToken = {authToken}/>
-        <div className = "home">
-            <h1>Click Right</h1>
-            <button className = "primary-button" onClick={handeClick}>
-                {authToken ? 'Signout' : 'Create Account'}
-            </button>
-
-        </div>
-        </div>
-
-    )
-    /*
-    return (
-        <div className= "overlay">
-          <Nav minimal={false} authToken={authToken}/>
-          <div className="home">
-            <h1>Click Right</h1>
-            {authToken ? (
-              <button className="primary-button" onClick={(handeClick) => navigate('/Dashboard')}>
-                Go to Dashboard
-              </button>
-            ) : (
-              <>
-                <button className="primary-button" onClick={() => navigate('/CreateAccount')}>
-                  Create Account
+            <Nav minimal={false} authToken={authToken} />
+            <div className="home">
+                <h1>Click Right</h1>
+                <button className="primary-button" onClick={handleClick}>
+                    {authToken ? 'Signout' : 'Create Account'}
                 </button>
-
-              </>
-            )}
-          </div>
+                <h2 className="slogan">Hurry! Your friend is waiting :)</h2>
+            </div>
         </div>
-      )*/
+    );
 }
-
-export default Home 
+export default Home
