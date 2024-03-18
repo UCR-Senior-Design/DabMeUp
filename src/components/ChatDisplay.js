@@ -15,5 +15,3 @@ const ChatDisplay = ({ chatId, currentUserID }) => {
 };
 
 export default ChatDisplay;
-
-
